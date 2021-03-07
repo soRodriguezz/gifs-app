@@ -3,6 +3,10 @@
   <hr class="text-white" />
 
   <div class="list-group list-reset">
-    <a href="#" class="list-group-item list-group-item-action"> Dashboard </a>
+    <!--
+    *  El pipe (|) en este caso le pasamos la funcion para capitalizar el texto (que la primera siempre sea mayuscula) 
+    *  Y sirve para manipular el dato de forma visual en el template
+    -->
+    <a href="#" *ngFor="let item of historial" class="list-group-item list-group-item-action"> {{ item | titlecase }} </a>
   </div>
 </div>

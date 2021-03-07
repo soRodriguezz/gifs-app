@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { GifsService } from '../services/gifs.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -6,7 +7,25 @@ import { Component } from '@angular/core';
   styles: [],
 })
 export class BusquedaComponent {
-  buscar(termino: string) {
-    console.log(termino);
+  
+  @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>;
+
+  //* Inyecto el servicio que esta inciado de manera global
+  constructor(private gifsService: GifsService){}
+
+  buscar() {
+  
+    const valor = this.txtBuscar.nativeElement.value;
+
+    //* validacion para que el campo no ingrese vacio
+    if(valor.trim().length === 0){
+      return;
+    }
+
+    this.gifsService.buscarGifs(valor);
+
+    this.txtBuscar.nativeElement.value = '';
+    
   }
+
 }
