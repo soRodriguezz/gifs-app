@@ -1,3 +1,19 @@
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente dolores
-quibusdam, enim et sint corporis inventore at ea dolore, quam laborum, eos
-officia iusto neque provident voluptatibus! Nam, adipisci ratione?
+<!-- <ul>
+    <li *ngFor="let gifs of resultados">
+        {{ gifs.title }}
+    </li>
+</ul> -->
+
+<div class="row">
+    <div *ngFor="let gifs of resultados" class="col-md-4 col-sm-6">
+        <div class="card">
+            <!--? Para mostrar la imagen, para que angular establezca el valor al source -->
+            <img class="card-img-top" [src]="gifs.images.downsized_medium.url" [alt]="gifs.title">
+            <div class="card-body">
+                <p class="card-text">
+                    <!--! {{ gifs.title }} Para tener acceso a las propiedades -->
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
