@@ -13,4 +13,9 @@ export class SidebarComponent {
 
   constructor(private gifsService: GifsService) { }
 
+  // ANCHOR funcion para mostrar resultados del historial
+  buscar(termino: string){
+    this.gifsService.buscarGifs(termino);
+  }
+
 }

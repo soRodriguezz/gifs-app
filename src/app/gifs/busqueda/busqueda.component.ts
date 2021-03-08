@@ -10,14 +10,14 @@ export class BusquedaComponent {
   
   @ViewChild('txtBuscar') txtBuscar!: ElementRef<HTMLInputElement>;
 
-  //* Inyecto el servicio que esta inciado de manera global
+  // NOTE Inyecto el servicio que esta inciado de manera global
   constructor(private gifsService: GifsService){}
 
   buscar() {
   
     const valor = this.txtBuscar.nativeElement.value;
 
-    //* validacion para que el campo no ingrese vacio
+    // NOTE validacion para que el campo no ingrese vacio
     if(valor.trim().length === 0){
       return;
     }
